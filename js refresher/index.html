@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        "use strict";
+        let a = 34 ;
+        //var b = 45;
+        //const c = 56;
+        // console.log(a);
+        // console.log("hello world");
+        //Types of variables in javascript
+        //1. Primitive data types
+        //Numbers 
+        //String
+        //Boolean
+        //Undefined
+        //Null
+
+        //2. Non-primitive data types
+        //Object (key and value pair)
+        let obj = {
+            name: "Krishna",
+            age: 23,
+            isActive: true,
+            hobbies: ["reading", "gaming"],
+            address: {
+                city: "Delhi",
+                state: "Delhi"
+            },
+            func: function(number) {
+                console.log("The Number is: " + number);
+            }
+            
+        }
+
+        document.addEventListener("click", function() {
+            console.log("Clicked");
+            //alert("Hello Krishna its alert check !");
+            let conf = confirm("Are you sure ?");
+            console.log(conf);
+
+        });
+
+        //Array        
+        let arr = [1, 2, 3, 4, 5];
+        console.log(arr);
+        
+        //Function
+        function hello() {
+            console.log("Hello Krishna !");
+        }
+
+        //3. Special data types
+        //Symbol
+        //BigInt
+
+        //4. Reference data types
+        //Object
+        //Array
+        //Function
+        //5. User-defined data types
+        //Class
+        //6. Dynamic data types
+        //7. Static data types
+        //8. Composite data types
+        
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        // let arr2 = [1, 2, 3, 4, 5];
+        // console.log(this);
+
+        // function myfunc(Number){
+        //     console.log("The Number is: " + this);
+        // }
+        // myfunc();
+
+
+        // Arrow function .
+        // let myfunc = (number) => {
+        //     console.log("The Number is :" + this)
+        // }
+        // myfunc();
+
+        // let obj2 = {
+        //     myfunc : (number) => {
+        //         console.log("The Number is :" + this);
+        //     }
+        // }
+        // obj2.myfunc();
+
+        let obj3 = {
+            a : this,
+            // myfunc : (number) => {
+            //     console.log("The Number is :" + this);
+            // }
+            myfunc : function() {
+                console.log(this);
+            }
+        }
+        obj3.myfunc();
+        console.log(obj3.a);
+
+        // Callback Function
+        setTimeout(()=> {
+            console.log("Main 5 second baad print huaa");
+        }, 5000);
+        console.log("Main neeche wala script hoon");
+
+    </script>
+</head>
+<body>
+    <h1> Hi i am learning javascript </h1>
+</body>
+</html>
