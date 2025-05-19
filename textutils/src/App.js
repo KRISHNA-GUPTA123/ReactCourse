@@ -12,7 +12,6 @@ function App() {
    <Navbar title="TextUtils" aboutText="About Page"/>
    <div className="container my-3" >
     <TextForm heading = "Enter The text to analyze  below"/>
-    <h1>dfd</h1>
     {/* <About/> */}
     </div>
    </>
