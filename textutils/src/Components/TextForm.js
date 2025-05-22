@@ -26,6 +26,17 @@ export default function TextForm(props) {
         // console.log("On Change")
         setText(event.target.value);
     }
+    const handleCopy = () => {
+        var text = document.getElementById("myBox");
+        text.select();  
+        navigator.clipboard.writeText(text.value);
+    }
+
+    const handleExtraSpaces = () => {
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "));
+    }
+
     //below is the use of hooks
     const [text, setText] = useState('');
     //text = "new text"; //wrong way to change the state
@@ -40,6 +51,8 @@ export default function TextForm(props) {
     <button className="btn btn-primary mx-1" onClick={handleUpClick}>Covert to Uppercase</button>
     <button className="btn btn-primary mx-1" onClick={handleLoClick}>Covert to Lowercase</button>
     <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear All</button>
+    <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy Text</button>
+    <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
     </div>
     <div className="container my-3">
         <h2>Your text summary</h2>
