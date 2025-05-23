@@ -8,11 +8,13 @@ export default function TextForm(props) {
         // console.log("Uppercase was clicked"+text)
         setText(text.toUpperCase());
         // setText("You have clicked on handleUpClick")
+        props.showAlert("Converted to Uppercase!", "success");
     }
     const handleLoClick = () => {
         // console.log("Uppercase was clicked"+text)
         setText(text.toLowerCase());
         // setText("You have clicked on handleUpClick")
+        props.showAlert("Converted to Lowercase!", "success");
     }
     const handleClearClick = () => {
         // console.log("Uppercase was clicked"+text)
@@ -21,6 +23,10 @@ export default function TextForm(props) {
             setText("");
         }
         // setText("You have clicked on handleUpClick")
+        if(result){
+            props.showAlert("Text Cleared!", "success");
+        }
+        
     }
     const handleOnChange = (event) => {
         // console.log("On Change")
@@ -30,11 +36,13 @@ export default function TextForm(props) {
         var text = document.getElementById("myBox");
         text.select();  
         navigator.clipboard.writeText(text.value);
+        props.showAlert("Text Copied!", "success");
     }
 
     const handleExtraSpaces = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
+        props.showAlert("Extra spaces removed!", "success");
     }
 
     //below is the use of hooks
@@ -43,10 +51,10 @@ export default function TextForm(props) {
     //setText("new text"); //correct way to change the state
   return (
     <>
-    <div className='container'>
+    <div className='container' style = {{color:props.mode==='dark'?'white':'black'}}>
     <h1>{props.heading} </h1>
     <div className="mb-3">
-    <textarea className="form-control"  value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+    <textarea className="form-control"  value={text} onChange={handleOnChange} style = {{backgroundColor:props.mode==='dark'?'rgb(82 72 72)':'white', color:props.mode==='dark'?'white':'black'}} id="myBox" rows="8"></textarea>
     </div>
     <button className="btn btn-primary mx-1" onClick={handleUpClick}>Covert to Uppercase</button>
     <button className="btn btn-primary mx-1" onClick={handleLoClick}>Covert to Lowercase</button>
@@ -54,12 +62,12 @@ export default function TextForm(props) {
     <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy Text</button>
     <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
     </div>
-    <div className="container my-3">
+    <div className="container my-3" style = {{color:props.mode==='dark'?'white':'black'}}>
         <h2>Your text summary</h2>
         <p>{text.split(" ").length} words and {text.length} characters</p>
         <p>{text.split(" ").length*0.008} minutes taken to read this paragraph.</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter Something to preview it."}</p>
     </div>
     </>
   )
