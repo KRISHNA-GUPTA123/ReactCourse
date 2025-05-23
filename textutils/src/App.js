@@ -5,12 +5,12 @@ import About from './Components/About';
 import TextForm from './Components/TextForm';
 import React, { useState } from 'react';
 import Alert from './Components/Alert';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-//   Link
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 //let name = "Krishna Ji";
 //const element = (<h1>Kanha</h1>);
@@ -54,17 +54,17 @@ function App() {
     <>
     {/* here title and aboutText are props passed to the Navbar component */}
     {/* Routing is used to navigate between different pages without reloading the page */}
-  {/* <Router> */}
+  <Router>
    <Navbar title="TextUtils" mode = {mode} toggleMode={toggleMode}/>
    <Alert alert={alert}/>
    <div className="container my-3" >
-    {/* <Routes>
+    <Routes>
       <Route exact path="/about" element={<About/>} />
       <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter The text to analyze  below" mode={mode} />} />
-    </Routes> */}
-    <TextForm showAlert={showAlert} heading="Enter The text to analyze  below" mode={mode} />
+    </Routes>
+    {/* <TextForm showAlert={showAlert} heading="Enter The text to analyze  below" mode={mode} /> */}
     </div>
-  {/* </Router> */}
+  </Router>
    </>
   );
   
