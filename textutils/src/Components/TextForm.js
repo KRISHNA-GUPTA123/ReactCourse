@@ -34,9 +34,10 @@ export default function TextForm(props) {
         setText(event.target.value);
     }
     const handleCopy = () => {
-        var text = document.getElementById("myBox");
-        text.select();  
-        navigator.clipboard.writeText(text.value);
+        // var text = document.getElementById("myBox");
+        // text.select();  
+        //because we are using navigator.clipboard API to copy the text so we don't need to select the text as we were doing earlier on above two lines
+        navigator.clipboard.writeText(text);
         // below is used to unselect the text after copying
         document.getSelection().removeAllRanges();
         props.showAlert("Copied to Clipboard!", "success"); 
@@ -67,8 +68,8 @@ export default function TextForm(props) {
     </div>
     <div className="container my-3" style = {{color:props.mode==='dark'?'white':'black'}}>
         <h2>Your text summary</h2>
-        <p>{text.split(" ").filter((element)=> {return element.length!=0}).length} words and {text.replace(/\s/g, '').length} characters</p>
-        <p>{text.split(" ").filter((element)=> {return element.length!=0}).length*0.008} minutes taken to read this paragraph.</p>
+        <p>{text.split(/\s+/).filter((element)=> {return element.length!==0}).length} words and {text.replace(/\s/g, '').length} characters</p>
+        <p>{text.split(" ").filter((element)=> {return element.length!==0}).length*0.008} minutes taken to read this paragraph.</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Nothing to Preview."}</p>
     </div>

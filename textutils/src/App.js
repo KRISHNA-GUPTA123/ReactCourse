@@ -26,14 +26,30 @@ function App() {
     }, 1500);
   }
   const [mode, setMode] = useState('light'); // Whether dark mode is enabled or not
-  const toggleMode = () =>{
+
+
+  // below function is used to remove the body classes when the mode is changed so that the body does not have multiple classes at the same time
+  const removeBodyClasses = () => {
+    document.body.classList.remove('bg-light');
+    document.body.classList.remove('bg-dark');
+    document.body.classList.remove('bg-primary');
+    document.body.classList.remove('bg-danger');
+    document.body.classList.remove('bg-success');
+    document.body.classList.remove('bg-warning'); 
+  }
+
+  const toggleMode = (cls) =>{
+    removeBodyClasses();
+    console.log(cls);
+    // below is used to add the class to the body
+    //document.body.classList.add('bg-'+cls)
     if(mode==='light'){
       setMode('dark');
       document.body.style.backgroundColor = '#292545';
       showAlert("Dark mode has been enabled", "success");
       //below is used to change the title of the page
       document.title = "TextUtils - Dark Mode";
-      // setInterval is used to change the title of the page at regular intervals
+      //setInterval is used to change the title of the page at regular intervals
           //  setInterval(() => {
           //    document.title = "TextUtils is Amazing";
           //  }, 2000);
@@ -45,7 +61,7 @@ function App() {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled", "success");
-      // below is used to change the title of the page
+      //below is used to change the title of the page
       document.title = "TextUtils - Light Mode";
 
     }

@@ -11,9 +11,12 @@ export default function About(props) {
     let myStyle = {
         color: props.mode === 'dark' ? 'white' : '#0427423',
         backgroundColor: props.mode === 'dark' ? 'rgb(36 74 104)' : 'white',
+        border: props.mode === 'dark' ? '1px solid white' : '1px solid #042743',
+        color: props.mode === 'dark' ? 'white' : '#042743'
+        
     }
 
-    const [btntext,setBtnText] = useState("Enable dark Mode");
+    //const [btntext,setBtnText] = useState("Enable dark Mode");
 
     // const toggleStyle = () => {
     //     if(myStyle.color === "black"){
@@ -22,14 +25,14 @@ export default function About(props) {
     //             backgroundColor: "black",
     //             border: "1px solid white"
     //         })
-    //         setBtnText("Enable Light Mode");
+    //         //setBtnText("Enable Light Mode");
     //     }
     //     else{
     //         setMyStyle({
     //             color: "black",
     //             backgroundColor: "white",
     //         })
-    //         setBtnText("Enable Dark Mode");
+    //         //setBtnText("Enable Dark Mode");
     //     }
     // }
     
